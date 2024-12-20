@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link
+      href="{{ url_for('static', filename='/images/icon/b.png') }}"
+      rel="icon"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <a href="{{ url_for('index') }}" class="title">Bidots Store</a>
+      <input
+        type="search"
+        id="searchInput"
+        class="input-search"
+        placeholder="Cari Sesuatu Disini"
+      />
+      <div id="searchSuggestions" class="suggestions"></div>
+      <button type="submit" id="searchSubmit" class="input-submit">Cari</button>
+      <!-- Pesan Flash -->
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="flash-message flash-{{ category }}">
+        <strong>{{ message }}</strong>
+        <span
+          class="close-button"
+          onclick="this.parentElement.style.display='none';"
+          >&times;</span
+        >
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+      <!-- pesan flask end -->
+      <nav>
+        <ul>
+          <!-- Menu User -->
+          {% if session['level'] == 'User' : %}
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#populer">Produk</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#sosmed">Kontak</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Username: {{ session.username }}</a>
+            <ul class="dropdown-content">
+              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            </ul>
+          </li>
+          {% else : %}
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#populer">Produk</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#sosmed">Kontak</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Username: {{ session.username }}</a>
+            <ul class="dropdown-content">
+              <li><a href="{{ url_for('admin') }}">Dasboard</a></li>
+              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            </ul>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <!-- Navbar end-->
+
+    <!-- Content -->
+    {% block content %} {% endblock %}
+    <!-- Content end -->
+
+    <!-- About -->
+    <section class="tentang" id="tentang">
+      <div class="card">
+        <h1>TENTANG KAMI</h1>
+        <br />
+        <p>
+          <a href="#" class="title">Bidots Store</a> adalah website yang
+          menyediakan layanan digital
+          <br />
+          Top Up game, seperti mobile legends, pubg, dan lain-lain, serta
+          layanan streaming
+          <br />
+          Kami berdiri sejak tahun 2024 dan telah dipercaya oleh berbagai
+          konsumen.
+          <br />
+        </p>
+      </div>
+    </section>
+    <!-- About end -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="sosmed" id="sosmed">
+        <h1>SOSIAL MEDIA</h1>
+        <a
+          href="https://instagram.com/endrawan.nuur/profilecard/?igsh=MWF0dXh4eTgyMmRuaA=="
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="{{ url_for('static', filename='images/ig.png') }}" alt=""
+        /></a>
+        <a href="http://" target="_blank" rel="noopener noreferrer"
+          ><img src="{{ url_for('static', filename='images/fb.png') }}" alt=""
+        /></a>
+        <a
+          href="http://github.com/rins1310"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="{{ url_for('static', filename='images/github.png') }}"
+            alt=""
+        /></a>
+      </div>
+    </footer>
+    <div id="copyright">&copy;2022 BidotsStore</div>
+    <!-- Footer end -->
+
+    <!-- JS -->
+    <script src="static/js/slide.js"></script>
+    <script src="static/js/search.js"></script>
+
+    <!-- Script pilihan nominal -->
+    <script>
+      // Ambil semua elemen dengan class "voucher"
+      const vouchers = document.querySelectorAll(".voucher");
+
+      // Tambahkan event listener ke setiap elemen voucher
+      vouchers.forEach((voucher) => {
+        voucher.addEventListener("click", () => {
+          // Hapus class 'active' dari semua voucher
+          vouchers.forEach((v) => v.classList.remove("active"));
+
+          // Tambahkan class 'active' ke voucher yang diklik
+          voucher.classList.add("active");
+
+          // Ambil nilai dari elemen item dan price dalam voucher yang diklik
+          const itemText = voucher.querySelector(".item").innerText;
+          const priceText = voucher.querySelector(".price").innerText;
+
+          // Masukkan nilai ke input dengan ID 'item' dan 'price'
+          document.getElementById("item").value = itemText;
+          document.getElementById("price").value = priceText;
+        });
+      });
+    </script>
+    <!-- Script pilihan nominal end -->
+    <!-- JS end -->
+  </body>
+</html>
