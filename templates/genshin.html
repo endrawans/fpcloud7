@@ -1,0 +1,198 @@
+{% extends 'base.html' %} {% block title %} Genshin Impact {% endblock %} {%
+block content %}
+<!-- Content -->
+<section id="daftarharga" class="daftarharga">
+  <div class="container">
+    <div class="left-panel">
+      <h2>
+        <img
+          alt="GenshinImpact"
+          height="50"
+          src="{{ url_for('static', filename='images/GenshinImpact.jpg') }}"
+          width="50"
+          align="middle"
+          class="icon"
+        />Genshin Impact
+      </h2>
+      <h4>Cara Top Up</h4>
+      <ul>
+        <li>1. Masukkan User ID Anda</li>
+        <li>2. Pilih produk yang kamu inginkan</li>
+        <li>3. Selesaikan pembayaran</li>
+        <li>4. Produk akan ditambahkan ke akun Genshin Impact kamu</li>
+      </ul>
+    </div>
+
+    <div class="right-panel">
+      <div class="tabs">
+        <div>
+          <h2>Pembelian</h2>
+        </div>
+      </div>
+
+      <div class="content">
+        <h3>Pilih nominal</h3>
+        <div class="nominal">
+          <div class="voucher">
+            <img
+              src="{{ url_for('static', filename='images/icon/Genesis.png') }}"
+              height="50"
+              width="50"
+              alt=""
+            />
+            <p class="item">60 Genesis Crystals</p>
+            <p class="price">Rp13.800</p>
+          </div>
+
+          <div class="voucher">
+            <img
+              src="{{ url_for('static', filename='images/icon/Genesis.png') }}"
+              height="50"
+              width="50"
+              alt=""
+            />
+            <p class="item">300+30 Genesis Crystals</p>
+            <p class="price">Rp63.300</p>
+          </div>
+
+          <div class="voucher">
+            <img
+              src="{{ url_for('static', filename='images/icon/Genesis.png') }}"
+              height="50"
+              width="50"
+              alt=""
+            />
+            <p class="item">980+110 Genesis Crystals</p>
+            <p class="price">Rp188.600</p>
+          </div>
+
+          <div class="voucher">
+            <img
+              src="{{ url_for('static', filename='images/icon/Genesis.png') }}"
+              height="50"
+              width="50"
+              alt=""
+            />
+            <p class="item">1980+260 Genesis Crystals</p>
+            <p class="price">Rp408.000</p>
+          </div>
+
+          <div class="voucher">
+            <img
+              src="{{ url_for('static', filename='images/icon/Genesis.png') }}"
+              height="50"
+              width="50"
+              alt=""
+            />
+            <p class="item">6480+1600 Genesis Crystals</p>
+            <p class="price">Rp1.260.400</p>
+          </div>
+
+          <div class="voucher">
+            <img
+              src="{{ url_for('static', filename='images/icon/Genesis.png') }}"
+              height="50"
+              width="50"
+              alt=""
+            />
+            <p class="item">6480+1600 Genesis Crystals</p>
+            <p class="price">Rp1.260.400</p>
+          </div>
+
+          <div class="voucher">
+            <img
+              src="{{ url_for('static', filename='images/icon/Genesis.png') }}"
+              height="50"
+              width="50"
+              alt=""
+            />
+            <p class="item">6480+1600 Genesis Crystals</p>
+            <p class="price">Rp1.260.400</p>
+          </div>
+
+          <div class="voucher">
+            <img
+              src="{{ url_for('static', filename='images/icon/Welkin.png') }}"
+              height="50"
+              width="50"
+              alt=""
+            />
+            <p class="item">Blessing Welkin Moon</p>
+            <p class="price">Rp63.000</p>
+          </div>
+        </div>
+        <form action="{{ url_for('genshin')}}" method="post">
+          <div class="produk">
+            <input
+              type="hidden"
+              name="jproduk"
+              id="jproduk"
+              value="Genshin Impact"
+              readonly
+            />
+          </div>
+
+          <div class="user-info">
+            <label for="userId">User ID:</label>
+            <input
+              type="text"
+              name="userId"
+              id="userId"
+              placeholder="Masukkan User ID"
+              required
+            />
+          </div>
+
+          <div class="additional-inputs">
+            <label for="item">Nominal:</label>
+            <input
+              type="text"
+              name="item"
+              id="item"
+              readonly
+              placeholder="Harga akan muncul di sini"
+            />
+            <label for="price">Harga:</label>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              readonly
+              placeholder="Harga akan muncul di sini"
+            />
+
+            <label for="jumlah">Jumlah Item:</label>
+            <input
+              type="number"
+              name="jumlah"
+              id="jumlah"
+              min="1"
+              placeholder="Masukkan jumlah item"
+            />
+
+            <label for="email">Alamat Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Masukkan email Anda"
+              required
+            />
+
+            <label for="metode">Metode Pembayaran:</label>
+            <select name="metode" id="metode">
+              <option value="gopay">GoPay</option>
+              <option value="ovo">OVO</option>
+              <option value="dana">DANA</option>
+              <option value="shopeepay">ShopeePay</option>
+            </select>
+          </div>
+          <button class="btn">Bayar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Content end -->
+
+{% endblock %}

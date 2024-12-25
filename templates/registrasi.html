@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="{{ url_for('static', filename='/images/icon/b.png') }}"
+      rel="icon"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Form Registrasi</title>
+    <style>
+      :root {
+        --blue: #2c2546;
+        --dark-blue: #1b1535;
+        --green: #00eb09;
+        --white: #fff;
+      }
+      body {
+        background-color: var(--dark-blue);
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background-color: var(--blue);
+        color: var(--white);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Form Registrasi -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4 text-center mt-3 mb-3">
+          <h4>Form Registrasi</h4>
+          <!-- pesan flash -->
+          {% with messages = get_flashed_messages(with_categories=true) %} {% if
+          messages %} {% for category, message in messages %}
+          <div
+            class="alert alert-{{ category }} alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>{{ message }}</strong>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+          {% endfor %} {% endif %} {% endwith %}
+          <!-- pesan flask end -->
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <form action="{{ url_for('registrasi')}}" method="post">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Masukkan username"
+                name="username"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Masukkan email"
+                name="email"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password </label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Masukkan password"
+                name="password"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <select class="form-select" name="level" id="level" required>
+                <option value="">...Pilih Level...</option>
+                <option value="User">User</option>
+                <option value="Admin" disabled>Admin</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrasi</button>
+            <div class="text-start">
+              Sudah Punya Akun...? klik
+              <a href="{{ url_for('login')}}">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Form Registrasi end -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

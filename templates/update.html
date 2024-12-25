@@ -1,0 +1,147 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="updateModal{{ row [0] }}"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Status</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url_for('update')}}" method="post">
+          <!-- Hidden input for jproduk -->
+          <input
+            type="hidden"
+            name="id_transaksi"
+            id="id_transaksi"
+            value="{{ row [0] }}"
+            readonly
+          />
+          <!-- Hidden input for jproduk -->
+          <input
+            type="hidden"
+            name="jproduk"
+            id="jproduk"
+            value="{{ row [1] }}"
+            readonly
+          />
+
+          <!-- User ID Input -->
+          <div class="mb-3">
+            <label for="userId" class="form-label">User ID:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="userId"
+              id="userId"
+              value="{{ row [2] }}"
+              placeholder="Masukkan User ID"
+            />
+          </div>
+
+          <!-- Nominal and Harga Input -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="item" class="form-label">Nominal:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="item"
+                id="item"
+                value="{{ row [3] }}"
+                readonly
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="price" class="form-label">Harga:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="price"
+                id="price"
+                value="{{ row [4] }}"
+                readonly
+              />
+            </div>
+          </div>
+
+          <!-- Jumlah Item -->
+          <div class="mb-3">
+            <label for="jumlah" class="form-label">Jumlah Item:</label>
+            <input
+              type="number"
+              class="form-control"
+              name="jumlah"
+              id="jumlah"
+              value="{{ row [5] }}"
+              min="1"
+              readonly
+            />
+          </div>
+
+          <!-- Email Input -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Alamat Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              value="{{ row [6] }}"
+              placeholder="Masukkan email Anda"
+            />
+          </div>
+
+          <!-- Metode Pembayaran -->
+          <div class="mb-3">
+            <label for="metode" class="form-label">Metode Pembayaran:</label>
+            <select class="form-select" name="metode" id="metode">
+              <option value="{{ row [7] }}">{{ row [7] }}</option>
+              <option value="gopay">GoPay</option>
+              <option value="ovo">OVO</option>
+              <option value="dana">DANA</option>
+              <option value="shopeepay">ShopeePay</option>
+            </select>
+          </div>
+
+          <!-- Status -->
+          <div class="mb-3">
+            <label for="metode" class="form-label">Status:</label>
+            <select class="form-select" name="status" id="status">
+              <option value="{{ row [8] }}">{{ row [8] }}</option>
+              <option value="Konfirmasi">Konfirmasi</option>
+              <option value="Proses">Proses</option>
+              <option value="Selesai">Selesai</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              onclick="confirm('anda yakin?')"
+            >
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

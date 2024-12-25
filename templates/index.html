@@ -1,0 +1,197 @@
+{% extends 'base.html' %} {% block title %} Bidots Store {% endblock %} {% block
+content %}
+<!-- Slider -->
+<div id="home" class="slider">
+  <div class="slides-container">
+    <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
+    <div class="slides" id="slides">
+      <img
+        src="{{ url_for('static', filename='images/slide-1.jpg') }}"
+        alt=""
+        class="slide"
+      />
+      <img
+        src="{{ url_for('static', filename='images/slide-2.jpg') }}"
+        alt=""
+        class="slide"
+      />
+      <img
+        src="{{ url_for('static', filename='images/slide-3.jpg') }}"
+        alt=""
+        class="slide"
+      />
+      <img
+        src="{{ url_for('static', filename='images/slide-4.jpg') }}"
+        alt=""
+        class="slide"
+      />
+      <img
+        src="{{ url_for('static', filename='images/slide-5.jpg') }}"
+        alt=""
+        class="slide"
+      />
+    </div>
+    <button class="slider-btn next" onclick="nextSlide()">&#10095;</button>
+  </div>
+</div>
+<!-- Slider end -->
+
+<!-- Aplikasi -->
+<h1 class="title-p">POPULER</h1>
+<section id="populer" class="populer">
+  <div class="FreeFire">
+    <div class="link">
+      <a href="{{ url_for('free_fire') }}">
+        <img src="{{ url_for('static', filename='images/ff.png') }}" alt="" />
+        <div class="judul-produk">Free Fire</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="MobileLegends">
+    <div class="link">
+      <a href="{{ url_for('mobile_legends') }}">
+        <img src="{{ url_for('static', filename='images/mlbb.jpg') }}" alt="" />
+        <div class="judul-produk">Mobile Legends</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="Valorant">
+    <div class="link">
+      <a href="{{ url_for('valorant') }}">
+        <img
+          src="{{ url_for('static', filename='images/valorant.jpg') }}"
+          alt=""
+        />
+        <div class="judul-produk">Valorant</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="CodM">
+    <div class="link">
+      <a href="{{ url_for('codm') }}">
+        <img src="{{ url_for('static', filename='images/codm.jpg') }}" alt="" />
+        <div class="judul-produk">Call of Dutty Mobile</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="PUBG">
+    <div class="link">
+      <a href="{{ url_for('pubg') }}">
+        <img
+          src="{{ url_for('static', filename='images/pubgm.jpg') }}"
+          alt=""
+        />
+        <div class="judul-produk">PUBG</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="GenshinImpact">
+    <div class="link">
+      <a href="{{ url_for('genshin') }}">
+        <img
+          src="{{ url_for('static', filename='images/GenshinImpact.jpg') }}"
+          alt=""
+        />
+        <div class="judul-produk">Genshin Impact</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<h1 class="title-s">STREAMING APP</h1>
+<section id="streaming" class="streaming">
+  <div class="VIU">
+    <div class="link">
+      <a href="#harga-viu">
+        <img src="{{ url_for('static', filename='images/viu.jpg') }}" alt="" />
+        <div class="judul-produk">VIU</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="Vidio">
+    <div class="link">
+      <a href="#harga-vidio">
+        <img
+          src="{{ url_for('static', filename='images/vidio.png') }}"
+          alt=""
+        />
+        <div class="judul-produk">Vidio</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="NimoTV">
+    <div class="link">
+      <a href="#harga-NimoTV">
+        <img
+          src="{{ url_for('static', filename='images/NimoTV.png') }}"
+          alt=""
+        />
+        <div class="judul-produk">NimoTV</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="Vision Plus">
+    <div class="link">
+      <a href="#harga-VisionPlus">
+        <img src="{{ url_for('static', filename='images/VSPL.png') }}" alt="" />
+        <div class="judul-produk">Vision Plus</div>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- Aplikasi end -->
+
+<!-- About -->
+<section class="tentang" id="tentang">
+  <div class="card">
+    <h1>TENTANG KAMI</h1>
+    <br />
+    <p>
+      <a href="#" class="title">Bidots Store</a> adalah website yang menyediakan
+      layanan digital
+      <br />
+      Top Up game, seperti mobile legends, pubg, dan lain-lain, serta layanan
+      streaming
+      <br />
+      Kami berdiri sejak tahun 2024 dan telah dipercaya oleh berbagai konsumen.
+      <br />
+    </p>
+  </div>
+</section>
+<!-- About end -->
+
+<!-- Footer -->
+<footer>
+  <div class="sosmed" id="sosmed">
+    <h1>SOSIAL MEDIA</h1>
+    <a
+      href="https://instagram.com/endrawan.nuur/profilecard/?igsh=MWF0dXh4eTgyMmRuaA=="
+      target="_blank"
+      rel="noopener noreferrer"
+      ><img src="{{ url_for('static', filename='images/ig.png') }}" alt="" />
+    </a>
+    <a href="http://" target="_blank" rel="noopener noreferrer"
+      ><img src="{{ url_for('static', filename='images/fb.png') }}" alt="" />
+    </a>
+    <a
+      href="http://github.com/rins1310"
+      target="_blank"
+      rel="noopener noreferrer"
+      ><img
+        src="{{ url_for('static', filename='images/github.png') }}"
+        alt=""
+      />
+    </a>
+  </div>
+</footer>
+<!-- Footer end -->
+<div id="copyright">&copy;2024 BidotsStore</div>
+{% endblock %}

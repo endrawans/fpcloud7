@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="detailModal{{ row [0] }}"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h2>Customer ID {{ row [0] }}</h2>
+        <hr />
+        <pre>
+            Produk    :{{ row [1] }}
+            User ID   :{{ row [2] }}
+            Item      :{{ row [3] }}
+            Harga     :{{ row [4] }}
+            Jumlah    :{{ row [5] }}
+            Email     :{{ row [6] }}
+            Metode    :{{ row [7] }}
+        </pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
