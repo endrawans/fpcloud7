@@ -6,10 +6,11 @@ app = Flask(__name__)
 
 #konfigurasi MySQL
 app.secret_key = 'bebasaja'
-app.config['MYSQL_HOST'] = 'webfpccc'
-app.config['MYSQL_USER'] = 'fpcloud7'
+app.config['MYSQL_HOST'] = 'webfpccc.mysql.database.azure.com'
+app.config['MYSQL_USER'] = 'fpccweb'
 app.config['MYSQL_PASSWORD'] = 'Bidot_store'  
 app.config['MYSQL_DB'] = 'tokotopup'
+app.config['MYSQL_PORT'] = 3306
 mysql = MySQL(app)
 
 # Registrasi
