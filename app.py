@@ -28,7 +28,7 @@ def registrasi():
         cursor.execute('SELECT * FROM tb_users WHERE username=%s OR email=%s',(username, email,))
         akun = cursor.fetchone()
         if akun is None:
-            cursor.execute('INSERT INTO tb_users VALUES (NULL, %s, %s, %s, %s)', (username, email, generate_password_hash(password), level))
+            cursor.execute('INSERT INTO tb_users VALUES (%s, %s, %s, %s)', (username, email, generate_password_hash(password), level))
             mysql.connection.commit()
             flash('Registrasi Berhasil', 'success')
         else:
